@@ -1,5 +1,11 @@
 " Wince group type that integrates mbbill/undotree as an afterimaging subwin
 
+" Avoid loading twice
+if exists('s:loaded')
+    finish
+endif
+let s:loaded = 0
+
 " Dependency on Wince, and implicitly on vim-jersuite-core
 JerCheckDep wince_undotree
 \           wince
@@ -12,7 +18,7 @@ if !exists('g:loaded_undotree') || !g:loaded_undotree
     exit
 endif
 " Dependencies satisfied
-let g:wince_undotree_version = '0.2.0'
+let g:wince_undotree_version = '0.2.1'
 call jer_log#LogFunctions('jersuite').CFG('wince-undotree version ',
                                         \ g:wince_undotree_version)
 
