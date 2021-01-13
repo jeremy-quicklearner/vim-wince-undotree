@@ -10,7 +10,7 @@ let s:loaded = 0
 JerCheckDep wince_undotree
 \           wince
 \           github.com/jeremy-quicklearner/vim-wince
-\           0.2.0
+\           0.2.3
 \           1.0.0
 " Dependency on mbbill/undotree
 if !exists('g:loaded_undotree') || !g:loaded_undotree
@@ -18,7 +18,7 @@ if !exists('g:loaded_undotree') || !g:loaded_undotree
     exit
 endif
 " Dependencies satisfied
-let g:wince_undotree_version = '0.2.1'
+let g:wince_undotree_version = '0.2.2'
 call jer_log#LogFunctions('jersuite').CFG('wince-undotree version ',
                                         \ g:wince_undotree_version)
 
@@ -97,7 +97,7 @@ endif
 " model are certain to be consistent
 if !exists('g:wince_undotree_chc')
     let g:wince_undotree_chc = 1
-    call jer_chc#Register(function('wince_undotree#Update'), [], 0, 10, 1, 0, 1)
+    call jer_pec#Register(function('wince_undotree#Update'), [], 0, 10, 1, 0, 1)
     call wince_user#AddPostUserOperationCallback(function('wince_undotree#Update'))
 endif
 
@@ -112,7 +112,7 @@ augroup WinceUndotree
     " of extra supwins with the undotree filetype and no content. I see no
     " reason why the user would ever want to keep these windows around, so
     " they are removed here
-    autocmd SessionLoadPost * call jer_util#TabDo('', 'call jer_chc#Register(function("wince_undotree#CloseDangling"), [], 1, -100, 0, 0, 0)')
+    autocmd SessionLoadPost * call jer_util#TabDo('', 'call jer_pec#Register(function("wince_undotree#CloseDangling"), [], 1, -100, 0, 0, 0)')
 augroup END
 
 " Mappings
