@@ -10,7 +10,7 @@ let s:loaded = 0
 JerCheckDep wince_undotree
 \           wince
 \           github.com/jeremy-quicklearner/vim-wince
-\           0.2.3
+\           0.2.6
 \           1.0.0
 " Dependency on mbbill/undotree
 if !exists('g:loaded_undotree') || !g:loaded_undotree
@@ -18,7 +18,7 @@ if !exists('g:loaded_undotree') || !g:loaded_undotree
     exit
 endif
 " Dependencies satisfied
-let g:wince_undotree_version = '0.2.2'
+let g:wince_undotree_version = '0.2.3'
 call jer_log#LogFunctions('jersuite').CFG('wince-undotree version ',
                                         \ g:wince_undotree_version)
 

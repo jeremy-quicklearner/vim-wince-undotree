@@ -121,7 +121,7 @@ function! wince_undotree#ToIdentify(winid)
         return {}
     endif
 
-    let curbufname = bufname(winbufnr(a:winid))
+    let curbufname = bufname(s:Win.bufnr(a:winid))
     if t:undotree.bufname ==# curbufname
         let typename = 'tree'
     elseif t:diffpanel.bufname ==# curbufname
@@ -130,7 +130,7 @@ function! wince_undotree#ToIdentify(winid)
         return {}
     endif
 
-    let jtarget = getwinvar(s:Win.id2win(a:winid), 'j_undotree_target', 0)
+    let jtarget = s:Win.getwinvar(a:winid, 'j_undotree_target', 0)
     if jtarget
         let supwinid = jtarget
     else
